@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Habit Tracker</h1>
+
+        <form action="/add" method="POST" class="add-form">
+            <input type="text" name="name" placeholder="e.g. Morning run, Read 10 pages..." required>
+            <button type="submit">Add Habit</button>
+        </form>
+
+        <div class="habit-list">
+            {% for habit in habits %}
+            <div class="habit-card {% if habit['last_completed'] == today %}done{% endif %}">
+                <div class="habit-info">
+                    <span class="habit-name">{{ habit['name'] }}</span>
+                    <span class="habit-streak">🔥 {{ habit['streak'] }} day streak</span>
+                </div>
+                <div class="habit-actions">
+                    <form action="/complete/{{ habit['id'] }}" method="POST">
+                        <button type="submit" class="btn-done"
+                            {% if habit['last_completed'] == today %}disabled{% endif %}>
+                            {% if habit['last_completed'] == today %}Done Today ✓{% else %}Mark Done{% endif %}
+                        </button>
+                    </form>
+                    <form action="/delete/{{ habit['id'] }}" method="POST">
+                        <button type="submit" class="btn-delete">✕</button>
+                    </form>
+                </div>
+            </div>
+            {% else %}
+            <p class="empty-state">No habits yet — add one above to get started.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

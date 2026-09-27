@@ -1,0 +1,79 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+}
+
+.container { width: 100%; max-width: 520px; }
+
+h1 { text-align: center; margin-bottom: 24px; font-size: 1.8rem; }
+
+.add-form { display: flex; gap: 8px; margin-bottom: 28px; }
+
+.add-form input {
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #1e293b;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+}
+
+.add-form input:focus { outline: none; border-color: #6366f1; }
+
+.add-form button, .btn-done {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #6366f1;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.add-form button:hover, .btn-done:hover:not(:disabled) { background: #4f46e5; }
+
+.habit-list { display: flex; flex-direction: column; gap: 12px; }
+
+.habit-card {
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid #334155;
+}
+
+.habit-card.done { border-left-color: #22c55e; }
+
+.habit-info { display: flex; flex-direction: column; gap: 4px; }
+
+.habit-name { font-weight: 600; font-size: 1.02rem; }
+
+.habit-streak { font-size: 0.85rem; color: #94a3b8; }
+
+.habit-actions { display: flex; gap: 8px; }
+
+.btn-done:disabled { background: #22c55e; cursor: default; opacity: 0.9; }
+
+.btn-delete {
+    background: transparent;
+    border: 1px solid #475569;
+    color: #94a3b8;
+    border-radius: 8px;
+    padding: 12px 14px;
+    cursor: pointer;
+}
+
+.btn-delete:hover { border-color: #ef4444; color: #ef4444; }
+
+.empty-state { text-align: center; color: #64748b; padding: 32px 0; }

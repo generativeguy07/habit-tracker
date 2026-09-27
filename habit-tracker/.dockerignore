@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+habits.db
+.git
+.gitignore
+README.md
